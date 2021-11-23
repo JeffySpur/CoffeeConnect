@@ -11,5 +11,6 @@ namespace CoffeeConnect.Models
         public int CoffeeId { get; set; }
         public string CoffeeName { get; set; }
         public decimal PricePerPound { get; set; }
+        public string CoffeeDescription { get; set; }
     }
 }

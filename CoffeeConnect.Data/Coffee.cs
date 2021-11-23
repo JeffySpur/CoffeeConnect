@@ -26,5 +26,7 @@ namespace CoffeeConnect.Data
         [Display(Name = "What is the price per pound of this coffee?")]
         [Range(1, 9999, ErrorMessage = "Please enter the price of this coffee per pound.")]
         public decimal PricePerPound { get; set; }
+        [Display(Name = "Enter a description of the coffee I.E notes of cocoa dark roast")]
+        public string CoffeeDescription { get; set; }
     }
 }

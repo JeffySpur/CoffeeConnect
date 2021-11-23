@@ -17,5 +17,20 @@ namespace CoffeeConnect.WebMVC.Controllers
             var model = new CoffeeListItem[0];
             return View(model);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CoffeeCreate model)
+        {
+            if (ModelState.IsValid)
+            { 
+            }
+            return View(model);
+        }
     }
 }

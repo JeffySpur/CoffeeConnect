@@ -17,10 +17,10 @@ namespace CoffeeConnect.Data
         [MaxLength(150, ErrorMessage = "Please enter the name of the coffee you wish to add.")]
         public string CoffeeName { get; set; }
 
-        [Required]
+     /*   [Required]
         [Display(Name = "How many are in stock?")]
         [Range(1,9999, ErrorMessage="Please enter the how many pound of coffee are in stock.")]
-        public int AmountInStock { get; set; }
+        public int AmountInStock { get; set; }*/
 
         [Required]
         [Display(Name = "What is the price per pound of this coffee?")]

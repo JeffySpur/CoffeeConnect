@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoffeeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoffeeConnect.Data\CoffeeConnect.Data.csproj">
+      <Project>{7F061972-A68A-42F6-9AFD-09AE1F55C8D1}</Project>
+      <Name>CoffeeConnect.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoffeeConnect.Models\CoffeeConnect.Models.csproj">
+      <Project>{BB319B2D-A2B4-4D00-8537-1BB67ECBE82B}</Project>
+      <Name>CoffeeConnect.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

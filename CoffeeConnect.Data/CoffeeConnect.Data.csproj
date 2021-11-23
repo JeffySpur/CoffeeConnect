@@ -56,11 +56,35 @@
   <ItemGroup>
     <Compile Include="Coffee.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202111221734444_InitialCreate.cs" />
+    <Compile Include="Migrations\202111221734444_InitialCreate.Designer.cs">
+      <DependentUpon>202111221734444_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111231724144_added a bunch of stuff.cs" />
+    <Compile Include="Migrations\202111231724144_added a bunch of stuff.Designer.cs">
+      <DependentUpon>202111231724144_added a bunch of stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111231932402_changedservice.cs" />
+    <Compile Include="Migrations\202111231932402_changedservice.Designer.cs">
+      <DependentUpon>202111231932402_changedservice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111221734444_InitialCreate.resx">
+      <DependentUpon>202111221734444_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111231724144_added a bunch of stuff.resx">
+      <DependentUpon>202111231724144_added a bunch of stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111231932402_changedservice.resx">
+      <DependentUpon>202111231932402_changedservice.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

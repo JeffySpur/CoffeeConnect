@@ -1,0 +1,50 @@
+﻿@model CoffeeConnect.Models.CoffeeDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CoffeeDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CoffeeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoffeeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoffeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoffeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoffeeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoffeeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PricePerPound)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PricePerPound)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.CoffeeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -35,17 +35,17 @@ namespace CoffeeConnect.WebMVC.Controllers
         public ActionResult Create(CoffeeCreate model)
         {
             if (!ModelState.IsValid) return View(model);
-               
-                 var service = CreateCoffeeService();
-               
+
+            var service = CreateCoffeeService();
+
             if (service.CreateCoffee(model))
             {
                 TempData["SaveResult"] = "Your Coffee has been added. ";
                 return RedirectToAction("Index");
             };
             ModelState.AddModelError("", "Sorry, the coffee has not been added. ");
-            
-                return View(model);
+
+            return View(model);
         }
 
         public ActionResult Details(int id)
@@ -92,9 +92,29 @@ namespace CoffeeConnect.WebMVC.Controllers
             return View(model);
 
         }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCoffeeService();
+            var model = svc.GetCoffeeById(id);
+            return View(model);
+        }
 
-
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteCoffee(int id)
+        {
+            var service = CreateCoffeeService();
+            service.DeleteCoffee(id);
+            TempData["SaveResult"] = "Your Coffee has been deleted";
             
+            return RedirectToAction("Index");
+        }
+
+
+
+
 
 
     }

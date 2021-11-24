@@ -77,5 +77,17 @@ namespace CoffeeConnect.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteCoffee(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.coffees.Single(e => e.CoffeeId == id);
+                ctx.coffees.Remove(entity);
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
     }
 }

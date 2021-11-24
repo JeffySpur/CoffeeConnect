@@ -69,6 +69,30 @@ namespace CoffeeConnect.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CoffeeEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.CoffeeId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateCoffeeService();
+
+            if (service.UpdateCoffee(model))
+            {
+                TempData["SaveResult"] = " That Coffee has been updated. ";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Coffee could not be updated. ");
+            return View(model);
+
+        }
+
 
             
 

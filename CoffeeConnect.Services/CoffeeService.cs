@@ -62,5 +62,20 @@ namespace CoffeeConnect.Services
 
             }
         }
+
+        public bool UpdateCoffee(CoffeeEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.coffees.Single(e => e.CoffeeId == model.CoffeeId);
+
+                entity.CoffeeName = model.CoffeeName;
+                entity.CoffeeDescription = model.CoffeeDescription;
+                entity.PricePerPound = model.PricePerPound;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

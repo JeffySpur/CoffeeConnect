@@ -55,6 +55,20 @@ namespace CoffeeConnect.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCoffeeService();
+            var detail = service.GetCoffeeById(id);
+            var model =
+                new CoffeeEdit
+                {
+                    CoffeeId = detail.CoffeeId,
+                    CoffeeDescription = detail.CoffeeDescription,
+                    PricePerPound = detail.PricePerPound
+                };
+            return View(model);
+        }
+
 
             
 

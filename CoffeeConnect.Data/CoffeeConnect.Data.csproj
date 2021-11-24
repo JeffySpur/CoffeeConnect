@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Coffee.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202111221734444_InitialCreate.cs" />
     <Compile Include="Migrations\202111221734444_InitialCreate.Designer.cs">

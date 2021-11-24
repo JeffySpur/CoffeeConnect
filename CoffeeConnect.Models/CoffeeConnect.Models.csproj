@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoffeeCreate.cs" />
+    <Compile Include="CoffeeDetail.cs" />
     <Compile Include="CoffeeListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

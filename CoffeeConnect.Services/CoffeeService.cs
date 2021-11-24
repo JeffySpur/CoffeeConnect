@@ -44,5 +44,23 @@ namespace CoffeeConnect.Services
                 return query.ToList();
             }
         }
+
+        public CoffeeDetail GetCoffeeById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.coffees.Single(e => e.CoffeeId == id);
+                return
+                    new CoffeeDetail
+                    {
+                        CoffeeId = entity.CoffeeId,
+                        CoffeeName = entity.CoffeeName,
+                        CoffeeDescription = entity.CoffeeDescription,
+                        PricePerPound = entity.PricePerPound
+                    };
+
+            }
+        }
     }
 }

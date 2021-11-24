@@ -1,4 +1,5 @@
-﻿using CoffeeConnect.Models;
+﻿using CoffeeConnect.Data;
+using CoffeeConnect.Models;
 using CoffeeConnect.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,10 @@ namespace CoffeeConnect.WebMVC.Controllers
     [Authorize]
     public class CoffeeController : Controller
     {
+        private static CoffeeService CreateCoffeeService()
+        {
+            return new CoffeeService();
+        }
 
         // GET: Coffee
         public ActionResult Index()
@@ -29,14 +34,30 @@ namespace CoffeeConnect.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CoffeeCreate model)
         {
-            if (!ModelState.IsValid)
-            { 
-            return View(model);
-            }
-            var service = new CoffeeService();
-
-            service.CreateCoffee(model);
-            return RedirectToAction("Index");
+            if (!ModelState.IsValid) return View(model);
+               
+                 var service = CreateCoffeeService();
+               
+            if (service.CreateCoffee(model))
+            {
+                TempData["SaveResult"] = "Your Coffee has been added. ";
+                return RedirectToAction("Index");
+            };
+            ModelState.AddModelError("", "Sorry, the coffee has not been added. ");
+            
+                return View(model);
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCoffeeService();
+            var model = svc.GetCoffeeById(id);
+            return View(model);
+        }
+
+
+            
+
+
     }
 }

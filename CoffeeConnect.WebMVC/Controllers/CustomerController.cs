@@ -1,4 +1,5 @@
-﻿using CoffeeConnect.Models;
+﻿using CoffeeConnect.Data;
+using CoffeeConnect.Models;
 using CoffeeConnect.Services;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ namespace CoffeeConnect.WebMVC.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
+
+        private static CustomerService CreateCustomerService()
+        {
+            return new CustomerService();
+        }
         public ActionResult Index()
         {
             var customerservice = new CustomerService();
@@ -41,9 +47,28 @@ namespace CoffeeConnect.WebMVC.Controllers
             return View(model);
         }
 
-        private static CustomerService CreateCustomerService()
+        public ActionResult Details(int id)
         {
-            return new CustomerService();
+            var svc = CreateCustomerService();
+            var model = svc.GetCustomerById(id);
+            return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCustomerService();
+            var detail = service.GetCustomerById(id);
+            var model =
+                new CustomerEdit
+                {
+                    CustomerId = detail.CustomerId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName
+                };
+            return View(model);
+        }
+
+
+
     }
 }

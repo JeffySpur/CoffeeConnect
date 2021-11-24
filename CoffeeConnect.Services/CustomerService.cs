@@ -42,6 +42,42 @@ namespace CoffeeConnect.Services
                 return query.ToList();
             }
         }
+
+        public CustomerDetail GetCustomerById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.customers.Single(e => e.CustomerId == id);
+                return
+                    new CustomerDetail
+                    {
+                        CustomerId = entity.CustomerId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName
+                    };
+
+
+            }
+        }
+
+        public bool UpdateCustomer(CustomerEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.customers.Single(e => e.CustomerId == model.CustomerId);
+
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+
+
     }
 }
                         

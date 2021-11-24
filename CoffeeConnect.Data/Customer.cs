@@ -10,10 +10,9 @@ namespace CoffeeConnect.Data
 {
     public class Customer
     {
-
-        [ForeignKey(nameof(Coffee))]
+        [Key]
         public int CustomerId { get; set; }
-        public virtual ICollection<Coffee> Coffees { get; set; } = new List<Coffee>();
+      
 
         [Required]
         [Display(Name = "First Name")]

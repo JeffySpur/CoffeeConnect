@@ -33,6 +33,8 @@ namespace CoffeeConnect.Data
         }
 
         public DbSet<Coffee> coffees { get; set; }
+        public DbSet<Customer> customers { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

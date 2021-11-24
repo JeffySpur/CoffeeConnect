@@ -9,8 +9,9 @@ namespace CoffeeConnect.Models
 {
     public class CustomerListItem
     {
-        
-        public string FullName { get; set; }
-        public virtual ICollection<Coffee> Coffees { get; set; } = new List<Coffee>();
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+
     }
 }

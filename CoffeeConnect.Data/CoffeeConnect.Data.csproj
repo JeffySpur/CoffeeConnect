@@ -73,6 +73,14 @@
     <Compile Include="Migrations\202111242127144_tookoutFK.Designer.cs">
       <DependentUpon>202111242127144_tookoutFK.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111260346512_migrationforpurchase.cs" />
+    <Compile Include="Migrations\202111260346512_migrationforpurchase.Designer.cs">
+      <DependentUpon>202111260346512_migrationforpurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260412599_purchase.cs" />
+    <Compile Include="Migrations\202111260412599_purchase.Designer.cs">
+      <DependentUpon>202111260412599_purchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchase.cs" />
@@ -93,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111242127144_tookoutFK.resx">
       <DependentUpon>202111242127144_tookoutFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260346512_migrationforpurchase.resx">
+      <DependentUpon>202111260346512_migrationforpurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260412599_purchase.resx">
+      <DependentUpon>202111260412599_purchase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

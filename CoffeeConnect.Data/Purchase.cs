@@ -12,6 +12,10 @@ namespace CoffeeConnect.Data
     {
         [Key]
         public int PurchaseId { get; set; }
+
+        [Required]
+        public Guid OwnerId { get; set; }
+
         [ForeignKey(nameof(Customer))]
         public int CustomerId { get; set; }
 
@@ -26,7 +30,8 @@ namespace CoffeeConnect.Data
         public int LbsOfCoffee { get; set; }
 
         [Display(Name = "Date purchased")]
-        public DateTime DateofPurchase { get; set; }
+        [DataType(DataType.Date)]
+        public DateTimeOffset DateofPurchase { get; set; }
 
     }
 }

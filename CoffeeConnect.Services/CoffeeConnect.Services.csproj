@@ -57,6 +57,7 @@
     <Compile Include="CoffeeService.cs" />
     <Compile Include="CustomerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -77,6 +77,19 @@ namespace CoffeeConnect.Services
         }
 
 
+        public bool DeleteCustomer(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.customers.Single(e => e.CustomerId == id);
+                ctx.customers.Remove(entity);
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
+
+
 
     }
 }

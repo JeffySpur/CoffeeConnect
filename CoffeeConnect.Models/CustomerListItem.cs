@@ -9,7 +9,7 @@ namespace CoffeeConnect.Models
 {
     public class CustomerListItem
     {
-        public string CustomerId { get; set; }
+        public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 

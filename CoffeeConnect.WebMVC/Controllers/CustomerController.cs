@@ -68,6 +68,49 @@ namespace CoffeeConnect.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CustomerEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.CustomerId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateCustomerService();
+
+            if (service.UpdateCustomer(model))
+            {
+                TempData["SaveResult"] = " That Customer has been updated. ";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Customer could not be updated. ");
+            return View(model);
+
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCustomerService();
+            var model = svc.GetCustomerById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteCustomer(int id)
+        {
+            var service = CreateCustomerService();
+            service.DeleteCustomer(id);
+            TempData["SaveResult"] = "Your Customer has been deleted";
+
+            return RedirectToAction("Index");
+        }
 
 
     }

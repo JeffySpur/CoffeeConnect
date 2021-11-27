@@ -31,7 +31,12 @@ namespace CoffeeConnect.Data
 
         [Display(Name = "Date purchased")]
         [DataType(DataType.Date)]
-        public DateTimeOffset DateofPurchase { get; set; }
+        public DateTimeOffset DateOfPurchase { get; set; }
+
+      /*  [Display(Name = "Date Modified")]
+        [DataType(DataType.Date)]
+        public DateTimeOffset? ModifiedUtc { get; set; }*/
+
 
     }
 }

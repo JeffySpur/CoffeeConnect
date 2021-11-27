@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CoffeeConnect.Models;
+using CoffeeConnect.Services;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,12 +12,15 @@ namespace CoffeeConnect.WebMVC.Controllers
     [Authorize]
     public class PurchaseController : Controller
     {
+
         // GET: Purchase
         public ActionResult Index()
         {
-            var purchaseservice = new PurchaseService();
-            var purchases = purchaseservice.GetCustomers();
-            return View(purchases);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PurchaseService(userId);
+            var model = service.GetPurchases();
+            return View(model);
         }
         public ActionResult Create()
         {
@@ -36,6 +42,20 @@ namespace CoffeeConnect.WebMVC.Controllers
             ModelState.AddModelError("", "Sorry, the purchase has not gone through. ");
 
             return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreatePurchaseService();
+            var model = svc.GetPurchaseById(id);
+            return View(model);
+        }
+
+        private PurchaseService CreatePurchaseService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PurchaseService(userId);
+            return service;
         }
     }
 }

@@ -1,0 +1,74 @@
+﻿@model CoffeeConnect.Models.PurchaseDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PurchaseDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoffeeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoffeeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoffeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoffeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LbsOfCoffee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LbsOfCoffee)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.PurchaseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -23,7 +23,8 @@ namespace CoffeeConnect.Services
                     OwnerId = _userId,
                     CoffeeId = model.CoffeeId,
                     CustomerId = model.CustomerId,
-                    LbsOfCoffee = model.LbsOfCoffee
+                    LbsOfCoffee = model.LbsOfCoffee,
+                    DateOfPurchase = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -43,12 +44,37 @@ namespace CoffeeConnect.Services
                     {
                         PurchaseId = p.PurchaseId,
                         CoffeeName = p.Coffee.CoffeeName,
-                        FullName = p.Customer.FullName,
-                        DateOfPurchase = p.DateofPurchase
-
+                        FirstName = p.Customer.FirstName,
+                        LastName = p.Customer.LastName,
+                        LbsOfCoffee = p.LbsOfCoffee,
+                        DateOfPurchase = p.DateOfPurchase
                     }
                     );
                 return query.ToArray();
+            }
+        }
+                        
+
+        public PurchaseDetail GetPurchaseById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.purchases.Single(e => e.PurchaseId == id && e.OwnerId == _userId);
+                return
+                    new PurchaseDetail
+                    {
+                        PurchaseId = entity.PurchaseId,
+                        CustomerId = entity.CustomerId,
+                        CoffeeId = entity.CoffeeId,
+                        LbsOfCoffee = entity.LbsOfCoffee,
+                        CreatedUtc = entity.DateOfPurchase,
+                        
+
+                    };
+                        
+
+
             }
         }
 

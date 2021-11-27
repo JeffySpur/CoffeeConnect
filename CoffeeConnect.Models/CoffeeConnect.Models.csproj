@@ -64,6 +64,8 @@
     <Compile Include="CustomerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseCreate.cs" />
+    <Compile Include="PurchaseDetail.cs" />
+    <Compile Include="PurchaseEdit.cs" />
     <Compile Include="PurchaseListItem.cs" />
   </ItemGroup>
   <ItemGroup>

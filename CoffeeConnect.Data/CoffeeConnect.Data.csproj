@@ -81,6 +81,10 @@
     <Compile Include="Migrations\202111260412599_purchase.Designer.cs">
       <DependentUpon>202111260412599_purchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111261939162_Purchasetrytwo.cs" />
+    <Compile Include="Migrations\202111261939162_Purchasetrytwo.Designer.cs">
+      <DependentUpon>202111261939162_Purchasetrytwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchase.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111260412599_purchase.resx">
       <DependentUpon>202111260412599_purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111261939162_Purchasetrytwo.resx">
+      <DependentUpon>202111261939162_Purchasetrytwo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

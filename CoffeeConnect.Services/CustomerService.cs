@@ -34,7 +34,7 @@ namespace CoffeeConnect.Services
                 var query =
                     ctx.customers.Select(e => new CustomerListItem
                     {
-                       
+                        CustomerId = e.CustomerId,                       
                         FirstName = e.FirstName,
                         LastName = e.LastName
                     }

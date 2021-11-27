@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace CoffeeConnect.Models
 {
-    public class PurchaseListItem
+    public class PurchaseEdit
     {
         public int PurchaseId { get; set; }
         public int LbsOfCoffee { get; set; }
         public string CoffeeName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTimeOffset DateOfPurchase { get; set; }
-
     }
 }

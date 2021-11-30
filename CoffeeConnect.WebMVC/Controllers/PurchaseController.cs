@@ -96,5 +96,24 @@ namespace CoffeeConnect.WebMVC.Controllers
             var service = new PurchaseService(userId);
             return service;
         }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreatePurchaseService();
+            var model = svc.GetPurchaseById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePurchase(int id)
+        {
+            var service = CreatePurchaseService();
+            service.DeletePurchase(id);
+            TempData["SaveResult"] = "Your Purchase has been deleted";
+
+            return RedirectToAction("Index");
+        }
     }
 }

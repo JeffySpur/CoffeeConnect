@@ -95,6 +95,18 @@ namespace CoffeeConnect.Services
             }
         }
 
+        public bool DeletePurchase(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.purchases.Single(e => e.PurchaseId == id);
+                ctx.purchases.Remove(entity);
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
+
 
     }
 }

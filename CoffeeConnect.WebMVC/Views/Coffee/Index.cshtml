@@ -4,11 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Coffee</h2>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -19,7 +21,7 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CoffeeId)
@@ -36,7 +38,7 @@
         <th></th>
     </tr>
 
-</table>
+</table>*@
 <div class="coffeecontainer row">
 
     @foreach (var item in Model)
@@ -48,10 +50,13 @@
              @Html.DisplayFor(modelItem => item.CoffeeName)
              @Html.DisplayFor(modelItem => item.PricePerPound)
              @Html.DisplayFor(modelItem => item.CoffeeDescription)
+            <div class="EditDeleteDetails">
+
              @Html.ActionLink("Edit", "Edit", new { id = item.CoffeeId })
              @Html.ActionLink("Details", "Details", new { id = item.CoffeeId })
              @Html.ActionLink("Delete", "Delete", new { id = item.CoffeeId })
              
+            </div>
 
        </div>
     }

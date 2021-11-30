@@ -19,7 +19,7 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -29,22 +29,28 @@
         </th>
         <th></th>
     </tr>
+</table>*@
+<div class="customercontainer row">
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.CustomerId  }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.CustomerId  }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.CustomerId })
-            </td>
-        </tr>
+        <div class="col-md-3 customer-card">
+
+
+            @Html.DisplayFor(modelItem => item.FirstName)
+
+
+            @Html.DisplayFor(modelItem => item.LastName)
+
+            <div class="CustomerEdit">
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
+
+            </div>
+        </div>
     }
 
-</table>
+</div>
+

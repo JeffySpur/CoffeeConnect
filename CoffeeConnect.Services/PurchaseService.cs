@@ -44,8 +44,8 @@ namespace CoffeeConnect.Services
                     {
                         PurchaseId = p.PurchaseId,
                         CoffeeName = p.Coffee.CoffeeName,
-                        FirstName = p.Customer.FirstName,
-                        LastName = p.Customer.LastName,
+                        FirstName = p.FirstName,
+                        LastName = p.LastName,
                         LbsOfCoffee = p.LbsOfCoffee,
                         DateOfPurchase = p.DateOfPurchase
                     }
@@ -77,6 +77,24 @@ namespace CoffeeConnect.Services
 
             }
         }
+
+        public bool UpdatePurchase(PurchaseEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.purchases.Single(p => p.PurchaseId == model.PurchaseId && p.OwnerId == _userId);
+
+              /*  entity.CoffeeName = model.CoffeeName;*/
+                entity.LbsOfCoffee = model.LbsOfCoffee;
+                entity.CustomerId = model.CustomerId;
+                entity.CoffeeId = model.CoffeeId;
+    
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
 
     }
 }

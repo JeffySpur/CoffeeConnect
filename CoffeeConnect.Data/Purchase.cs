@@ -36,6 +36,8 @@ namespace CoffeeConnect.Data
       /*  [Display(Name = "Date Modified")]
         [DataType(DataType.Date)]
         public DateTimeOffset? ModifiedUtc { get; set; }*/
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
 
     }

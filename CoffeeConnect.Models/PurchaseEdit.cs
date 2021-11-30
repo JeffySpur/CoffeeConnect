@@ -9,6 +9,8 @@ namespace CoffeeConnect.Models
     public class PurchaseEdit
     {
         public int PurchaseId { get; set; }
+        public int CustomerId { get; set; }
+        public int CoffeeId { get; set; }
         public int LbsOfCoffee { get; set; }
         public string CoffeeName { get; set; }
         public string FirstName { get; set; }

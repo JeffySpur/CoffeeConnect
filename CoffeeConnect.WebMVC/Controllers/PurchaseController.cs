@@ -50,6 +50,45 @@ namespace CoffeeConnect.WebMVC.Controllers
             var model = svc.GetPurchaseById(id);
             return View(model);
         }
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePurchaseService();
+            var detail = service.GetPurchaseById(id);
+            var model =
+                new PurchaseEdit
+                {
+                    PurchaseId = detail.PurchaseId,
+                    CoffeeId = detail.CoffeeId,
+                    CustomerId = detail.CustomerId,
+                    CoffeeName = detail.CoffeeName,
+                    LbsOfCoffee = detail.LbsOfCoffee
+                    
+                };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, PurchaseEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.PurchaseId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreatePurchaseService();
+
+            if (service.UpdatePurchase(model))
+            {
+                TempData["SaveResult"] = " That Purchase has been updated. ";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Purchase could not be updated. ");
+            return View(model);
+
+        }
 
         private PurchaseService CreatePurchaseService()
         {

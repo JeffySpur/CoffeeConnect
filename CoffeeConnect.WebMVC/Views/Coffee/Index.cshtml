@@ -11,13 +11,13 @@
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
-<div class="alert alert-success fade in" role="alert">
-    
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
-</div>
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
 }
 <table class="table">
     <tr>
@@ -36,26 +36,35 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CoffeeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CoffeeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PricePerPound)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CoffeeDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.CoffeeId  }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.CoffeeId  }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.CoffeeId  })
-        </td>
-    </tr>
-}
-
 </table>
+<div class="coffeecontainer row">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-3 coffee-card">
+            
+             @Html.DisplayFor(modelItem => item.CoffeeId)
+             @Html.DisplayFor(modelItem => item.CoffeeName)
+             @Html.DisplayFor(modelItem => item.PricePerPound)
+             @Html.DisplayFor(modelItem => item.CoffeeDescription)
+             @Html.ActionLink("Edit", "Edit", new { id = item.CoffeeId })
+             @Html.ActionLink("Details", "Details", new { id = item.CoffeeId })
+             @Html.ActionLink("Delete", "Delete", new { id = item.CoffeeId })
+             
+
+       </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,6 +10,8 @@ namespace CoffeeConnect.Models
     {
         public int PurchaseId { get; set; }
         public int LbsOfCoffee { get; set; }
+        public int CustomerId { get; set; }
+        public int CoffeeId { get; set; }
         public string CoffeeName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
